@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>My slides - maybe?</title>
+    <link rel="stylesheet" href="accessibility/helper.css">
+    <link rel="stylesheet" href="reveal.js/dist/reset.css" />
+    <link rel="stylesheet" href="reveal.js/dist/reveal.css" />
+    <!--<link rel="stylesheet" href="reveal.js/dist/theme/night.css" id="theme" />-->
+    <link rel="stylesheet" href="css/a11y-theme.css" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link
+      rel="stylesheet"
+      href="reveal.js/plugin/highlight/monokai.css"
+      id="highlight-theme"
+    />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        
+        <!--NEW SLIDES START HERE-->
+        <section data-background-color="#153a7e">
+          <h1>Make a splash: Dive into ARIA</h1>
+        </section>
+        <section data-background-image="assets/ostrich-head-in-sand.jpg">
+          <h2 class="img-bg">&lt;body aria-hidden="true"&gt;</h2>
+          <div role="img" aria-labelledby="ostrich">
+            <p id="ostrich"class="sr-only">An ostrich sticking its head in sand.</p>
+          </div>
+          </section>
+        
+        <section data-background-image="assets/background-wide-theme.png">
+          <h2>Nicolas Steenhout</h2>
+            <p style="float:left; width:350px"><img src="assets/nic-portrait.png" alt="Portrait of Nicolas Steenhout" width="350px" /></p>
+            <ul>
+              <li><a href="https://incl.ca">incl.ca</a></li>
+              <li><a href="https://a11yrules.com">a11yrules.com</a></li>
+            </ul>
+        </section>
+        
+        <section data-background-image="assets/spectator-sport.jpg">
+          <h2 class="img-bg">Not a spectator sport!</h2>
+        </section>
+        <section data-background-image="assets/background-wide-theme.png">
+          <h2>Prerequisites</h2>
+          <ul>
+            <li>Good understanding of HTML</li>
+            <li>Some knowledge of ARIA</li>
+          </ul>
+        </section>
+        
+        <section data-background-image="assets/background-wide-theme.png">
+          <h2>Disclaimer</h2>
+          <ul>
+            <li>No time for everything!</li>
+            <li>Getting you started.</li>
+          </ul>
+        </section>
+        
+        <section data-background-image="assets/background-wide-theme.png">
+          <h2>Million Report</h2>
+          <blockquote><p>Home pages with ARIA present averaged 60% more errors than those without.</p></blockquote>
+          <p>Source: <a href="https://webaim.org/blog/webaim-million-one-year-update/">WebAIM Million – One Year Update</a></p>
+        </section>
+        
+        <section data-background-image="assets/history.jpg">
+          <h2 class="img-bg sr-only">History</h2>
+          <div role="img" aria-labelledby="history">
+            <p id="history" class="sr-only">The word history written in white chalk on a blackboard.</p>
+          </div>
+          </section>
+        
+        <section data-background-image="assets/background-wide-theme.png">
+          <h2>First rule of ARIA</h2>
+          <p>Don't use ARIA.</p>
+          <p>Unless you really, really, REALLY need to.</p>
+        </section>
+        <section data-background-color="#fffff">
+          <h2>Gotchas!</h2>
+          <p><img src="assets/bomb.png" alt="" width="350px"/></p>
+        </section>
+        <section data-background-image="assets/owl-turned-head.jpg">
+          <h2 class="sr-only">Not a thing!</h2>
+          <div role="img" aria-labelledby="owl">
+            <p id="owl" class="sr-only">An owl with its head twisted upside down, looking really puzzled.</p>
+          </div>
+          <pre><code data-trim data-noescape>
+          &nbsp;&nbsp;&nbsp;&nbsp;aria-role
+          </code></pre>
+        </section>
+        
+        <section data-background-image="assets/background-wide-theme.png">
+          <h2>ARIA Live</h2>
+          <pre><code data-trim data-noescape>
+          &lt;div aria-live="assertive"&gt;
+              Mama said don't be rude and interupt
+          &lt;/div&gt;         
+          </code></pre>
+        </section>
+        
+        <section data-background-image="assets/background-wide-theme.png">
+          <h2>ARIA Live</h2>
+          <pre><code data-trim data-noescape>
+          &lt;div aria-live="polite"&gt;
+              Mama said don't be rude and interupt
+          &lt;/div&gt;         
+          </code></pre>
+        </section>
+        
+        <section data-background-image="assets/background-wide-theme.png">
+          <h2>Non unique ID</h2>
+          <pre><code data-trim data-noescape>
+          &lt;input aria-describedby="someid"&gt;
+          
+          &lt;p id="someid"&gt;One thing&lt;/p&gt;
+          
+          &lt;p id="someid"&gt;A different thing&lt;/p&gt;
+          </code></pre>
+        </section>
+        
+        <section data-background-image="assets/background-wide-theme.png">
+          <h2>Not quite the same thing</h2>
+          <pre><code data-trim data-noescape>
+          aria-label
+          </code></pre>
+          <p>vs.</p>
+          <pre><code data-trim data-noescape>
+          aria-labelledby
+          </code></pre>
+        </section>
+        
+        <!--<section data-background-image="assets/background-wide-theme.png">
+          <h2>First rule of ARIA</h2>
+          <p>Don't use ARIA if you don't need to!</p>
+          <p>In which circumstances might you need to avoid using <code>&lt;label&gt;</code>?</p>
+        </section>-->
+        
+        <section data-background-image="assets/background-wide-theme.png">
+          <h2>aria-labelledby</h2>
+          <pre><code data-trim data-noescape>
+          &lt;input aria-labelledby="label1"&gt;
+          
+          &lt;p id="label1"&gt;Some label&lt;p&gt;
+          </code></pre>
+          <ul>
+            <li>Requires a separate element's ID</li>
+            <li>Useful if content already exists on the page</li>
+            <li>Can be automatically translated</li>
+          </ul>
+        </section>
+        
+        <section data-background-image="assets/background-wide-theme.png">
+          <h2>aria-label</h2>
+          <pre><code data-trim data-noescape>
+          &lt;input aria-label="Some label"&gt;
+          </code></pre>
+          <ul>
+            <li>Requires a text string</li>
+            <li>Useful if content not already on the page</li>
+            <li>Cannot be automatically translated</li>
+          </ul>
+        </section>
+        
+        <section data-background-image="assets/background-wide-theme.png">
+          <h2>aria-describedby</h2>
+          <pre><code data-trim data-noescape>
+          &lt;input aria-describedby="SomeID"&gt;
+          &lt;p id="SomeID"&gt;Some text describing the input&lt;p&gt;
+          </code></pre>
+          <ul>
+            <li>Requires a separate element's ID</li>
+            <li>Useful to associate elements together programmatically</li>
+          </ul>
+        </section>
+        
+        <section data-background-image="assets/background-wide-theme.png">
+          <h2>aria-label</h2>
+          <p>Cannot be automatically translated!</p>
+          <pre><code data-trim data-noescape>&lt;label&gt;</code></pre>
+          <p>If there's any chance of a user needing translation, the label element is better</p>
+         
+        </section>
+        
+        <section data-background-image="assets/background-wide-theme.png">
+          <h2>Might or might not work</h2>
+          <pre><code data-trim data-noescape>
+          &lt;div aria-describedby="randomid1"&gt;
+          
+          &lt;p aria-labelledby="randomid2"&gt;
+          
+          &lt;span aria-label="Some random stuff"&gt;
+          </code></pre>
+        </section>
+        
+        
+        <section data-background-image="assets/background-wide-theme.png">
+          <h2>Not quite the same thing</h2>
+          <pre><code data-trim data-noescape>
+          aria-hidden
+          </code></pre>
+          <p>vs.</p>
+          <pre><code data-trim data-noescape>
+          role="presentation"
+          </code></pre>
+        </section>
+        
+        <section data-background-image="assets/background-wide-theme.png">
+          <h2>aria-hidden</h2>
+          <ul>
+            <li>Hides the element and its content from assistive technology</li>
+          </ul>
+        </section>
+        
+        <section data-background-image="assets/background-wide-theme.png">
+          <h2>role="presentation"</h2>
+          <ul>
+            <li>Removes the semantic meaning of the element</li>
+          </ul><!--SSSSSSSSSSSadd code sample-->
+        </section>
+    
+        <section data-background-image="assets/background-wide-theme.png">
+          <h2>Error messages - Found in the wild</h2>
+          <pre><code data-trim data-noescape>
+          &lt;input type="text" id="FirstName"&gt;
+          &lt;p&gt;First name can't be empty&lt;p&gt;
+          </code></pre>
+          <ul>
+            <li>No association between input and error message.</li>
+          </ul>
+        </section>
+        
+        <section data-background-image="assets/background-wide-theme.png">
+          <h2>Error messages - A better approach</h2>
+          <pre><code data-trim data-noescape>
+          &lt;input type="text" id="FirstName" aria-describedby="errFirstName"&gt;
+          &lt;p id="errFirstName"&gt;First name can't be empty&lt;p&gt;
+          </code></pre>
+          <ul>
+            <li>Explicit association of the two elements.</li>
+          </ul>
+        </section>
+        
+        <section data-background-image="assets/background-wide-theme.png">
+          <h2>Required fields - Visual notification</h2>
+          <pre><code data-trim data-noescape>
+          &lt;label for="FirstName"&gt;First Name *&lt;/label&gt;
+          </code></pre>
+          <ul>
+            <li>Asterisk announced as "star". May or may not be easily understood by screen reader users</li>
+            <li>Adds to the cognitive load</li>
+          </ul>
+        </section>
+        
+        <section data-background-image="assets/background-wide-theme.png">
+          <h2>Required fields - A better way</h2>
+          <pre><code data-trim data-noescape>
+          &lt;label for="FirstName"&gt;First Name *&lt;/label&gt;
+          </code></pre>
+          <ul>
+            <li>Asterisk announced as "star". May or may not be easily understood by screen reader users</li>
+            <li>Adds to the cognitive load</li>
+          </ul>
+        </section>
+        
+        <section data-background-image="assets/background-wide-theme.png">
+          <h2>Required fields - Programmatic notification</h2>
+          <pre><code data-trim data-noescape>
+          &lt;label for="FirstName"&gt;First Name &lt;span aria-hidden="true"&gt;*&lt;/span&gt;&lt;/label&gt;
+          </code></pre>
+          <ul>
+            <li>Programmatically hide the asterisk for screen reader users</li>
+            <li>Reduce cognitive load</li>
+            <li>Assumes the &lt;input&gt; has been programmatically amd correctly marked as required.</li>
+          </ul>
+        </section>
+        
+        <section data-background-image="assets/background-wide-theme.png">
+          <h2>Required fields</h2>
+          <pre><code data-trim data-noescape>
+          &lt;input required type="text"&gt;
+          </code></pre>
+          <p>vs.</p>
+          <pre><code data-trim data-noescape>
+          &lt;input aria-required="true" type="text"&gt;
+          </code></pre>
+        </section>
+       
+        
+        <section data-background-image="assets/background-wide-theme.png">
+          <h2>Required fields - required HTML5 attribute</h2>
+          <p>Don't use ARIA if there's a native HTML way of doing things, right?</p>
+          <ul>
+            <li>Automatically announces a field as “invalid” the 1st time focus is set to it</li>
+            <li>Triggers a client-side validation that fails WCAG.</li>
+            <li>Generic, non persistent error messages.</li>
+          </ul>
+        </section>
+        
+        <section data-background-image="assets/background-wide-theme.png">
+          <h2>Required fields - aria-required ARIA attribute</h2>
+          <ul>
+            <li>Does not suffer from the downfalls of the "required" attribute!</li>
+          </ul>
+          
+        </section><section data-background-image="assets/background-wide-theme.png">
+          <h2></h2>
+          <ul>
+            <li></li>
+            <li></li>
+          </ul>
+        </section><section data-background-image="assets/background-wide-theme.png">
+          <h2></h2>
+          <ul>
+            <li></li>
+            <li></li>
+          </ul>
+        </section><section data-background-image="assets/background-wide-theme.png">
+          <h2></h2>
+          <ul>
+            <li></li>
+            <li></li>
+          </ul>
+        </section><section data-background-image="assets/background-wide-theme.png">
+          <h2></h2>
+          <ul>
+            <li></li>
+            <li></li>
+          </ul>
+        </section><section data-background-image="assets/background-wide-theme.png">
+          <h2></h2>
+          <ul>
+            <li></li>
+            <li></li>
+          </ul>
+        </section><section data-background-image="assets/background-wide-theme.png">
+          <h2></h2>
+          <ul>
+            <li></li>
+            <li></li>
+          </ul>
+        </section><section data-background-image="assets/background-wide-theme.png">
+          <h2></h2>
+          <ul>
+            <li></li>
+            <li></li>
+          </ul>
+        </section><section data-background-image="assets/background-wide-theme.png">
+          <h2></h2>
+          <ul>
+            <li></li>
+            <li></li>
+          </ul>
+        </section><section data-background-image="assets/background-wide-theme.png">
+          <h2></h2>
+          <ul>
+            <li></li>
+            <li></li>
+          </ul>
+        </section><section data-background-image="assets/background-wide-theme.png">
+          <h2></h2>
+          <ul>
+            <li></li>
+            <li></li>
+          </ul>
+        </section><section data-background-image="assets/background-wide-theme.png">
+          <h2></h2>
+          <ul>
+            <li></li>
+            <li></li>
+          </ul>
+        </section><section data-background-image="assets/background-wide-theme.png">
+          <h2></h2>
+          <ul>
+            <li></li>
+            <li></li>
+          </ul>
+        </section><section data-background-image="assets/background-wide-theme.png">
+          <h2></h2>
+          <ul>
+            <li></li>
+            <li></li>
+          </ul>
+        </section><section data-background-image="assets/background-wide-theme.png">
+          <h2></h2>
+          <ul>
+            <li></li>
+            <li></li>
+          </ul>
+        </section><section data-background-image="assets/background-wide-theme.png">
+          <h2></h2>
+          <ul>
+            <li></li>
+            <li></li>
+          </ul>
+        </section>
+        
+        
+        <section>
+          <h2>Questions? &nbsp; &nbsp;Thank you!</h2>
+          <p>Nicolas Steenhout</p>
+          <p><a href="mailto:nic@incl.ca">nic@incl.ca</a></p>
+          <p><a href="https://twitter.com/vavroom">@vavroom</a></p>
+        </section>
+      </div>
+    </div>
+
+    <script src="reveal.js/dist/reveal.js"></script>
+    <script src="reveal.js/plugin/notes/notes.js"></script>
+    <script src="reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="reveal.js/plugin/highlight/highlight.js"></script>
+    <script src="reveal.js/plugin/zoom/zoom.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+        //Dependencies are from Marcy Sutton's accessibility helper.
+        dependencies: [
+                { src: 'accessibility/helper.js', async: true, condition: function() { 
+                	return !!document.body.classList; 
+                } 
+            }],
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom],
+      });
+    </script>
+  </body>
+</html>
